@@ -1,0 +1,59 @@
+<div class="row">
+  <h2>Ruby Regex Replace</h2>
+  <div class="span4">
+    <%= form_for(Input.new,
+		 url: static_pages_update_path,
+		 html: {
+		   method: :put,
+		   id: 'form',
+		   remote: true,
+		 }) do |f| %>
+      <div class="control-group">
+	<%= f.label :regex %>
+	<%= f.text_field :regex, id: 'regex_form', class: "span4" %>
+      </div>
+      <div class="control-group">
+	<%= f.label :replace %>
+	<%= f.text_field :replace, id: 'replace_form', class: "span4" %>
+      </div>
+      <div class="control-group">
+	<%= f.label :input_text %>
+	<%= f.text_area :input_text, id: 'input_text_form', rows: 10, class: "span4" %>
+      </div>
+    <% end %>
+
+    <h4>Regex cheat sheet</h4>
+    <table class="table">
+      <tr><th>.</th><td>Any character except a newline.</td></tr>
+      <tr><th>\w</th><td>A word character ([a-zA-Z0-9_])</td></tr>
+      <tr><th>\W</th><td>A non-word character ([^a-zA-Z0-9_])</td></tr>
+      <tr><th>\d</th><td>A digit character ([0-9])</td></tr>
+      <tr><th>\D</th><td>A non-digit character ([^0-9])</td></tr>
+      <tr><th>\h</th><td>A hexdigit character ([0-9a-fA-F])</td></tr>
+      <tr><th>\H</th><td>A non-hexdigit character ([^0-9a-fA-F])</td></tr>
+      <tr><th>\s</th><td>A whitespace character: /[ \t\r\n\f]/</td></tr>
+      <tr><th>\S</th><td>A non-whitespace character: /[^ \t\r\n\f]/</td></tr>
+      <tr><th>*</th><td>Zero or more times</td></tr>
+      <tr><th>+</th><td>One or more times</td></tr>
+      <tr><th>?</th><td>Zero or one times (optional)</td></tr>
+      <tr><th>{n}</th><td>Exactly n times</td></tr>
+      <tr><th>{n,}</th><td>n or more times</td></tr>
+      <tr><th>{,m}</th><td>m or less times</td></tr>
+      <tr><th>{n,m}</th><td>At least n and at most m times</td></tr>
+    </table>
+    
+  </div>
+
+  <div class="span7">
+    <div>
+      <h4>マッチ箇所</h4>
+      <div id="input-text-preview" class="well showtext">
+      </div>
+    </div>
+    <div>
+      <h4>置換結果</h4>
+      <div id="match-result" class="well showtext">
+      </div>
+    </div>
+  </div>
+</div>
